@@ -1,4 +1,7 @@
-/* 홈 배너 */
+/* 기존 CWS 시즌2 CSS 그대로 유지 */
+/* ... header, nav, gallery, about, contact 등 ... */
+
+/* ===== 홈 섹션 추가 ===== */
 .hero {
   position: relative;
   text-align: center;
@@ -62,7 +65,6 @@
   background-color: #5b6eae;
 }
 
-/* 홈 이벤트 */
 .home-events, .home-join {
   margin: 50px auto;
   max-width: 1000px;
