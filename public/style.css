@@ -27,7 +27,7 @@ body {
 
 .hero-text {
   position: absolute;
-  bottom: 15%; /* 이미지 아래쪽 15% 위치 */
+  bottom: 50%; /* 이미지 아래쪽 15% 위치 */
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.45); /* 반투명 어두운 배경 */
