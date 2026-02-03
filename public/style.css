@@ -11,7 +11,45 @@ body {
   color: #222;
   line-height: 1.6;
 }
+/* 기존 .hero */
+.hero {
+  position: relative;
+  text-align: center; /* 중앙정렬 제거 가능 */
+  overflow: hidden;
+  margin-bottom: 50px; /* 배너 아래 여백 조정 */
+}
 
+/* 배너 이미지 크기 조정 */
+.hero img {
+  width: 100%;
+  max-height: 400px; /* 배너 최대 높이 제한 */
+  object-fit: cover; /* 이미지 잘림 없이 영역 채우기 */
+  display: block;
+  margin: 0 auto; /* 가운데 정렬 유지 */
+  border-radius: 10px; /* 모서리 살짝 둥글게 */
+}
+
+/* 텍스트 오버레이 조정 */
+.hero-text {
+  position: absolute;
+  top: 20%; /* 위쪽 20% 위치 */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.7); /* 반투명 배경 */
+  padding: 15px 25px;
+  border-radius: 10px;
+  max-width: 90%;
+  text-align: left; /* 왼쪽 정렬 */
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+}
 /* 헤더 */
 header {
   background-color: #f8e3b2;
