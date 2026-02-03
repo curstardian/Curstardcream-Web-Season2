@@ -259,3 +259,122 @@ footer {
   color: #555;
   margin-top: 40px;
 }
+
+/* ===== 반응형 모바일 대응 ===== */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header .logo h1 {
+    font-size: 1.5rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  main section {
+    padding: 60px 20px;
+  }
+
+  /* 배너 이미지 반응형 */
+  .hero img {
+    max-height: 250px; /* 모바일에서 배너 높이 조정 */
+  }
+
+  .hero-text {
+    bottom: 10%;
+    padding: 15px 20px;
+    max-width: 90%;
+  }
+
+  .hero-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  /* 소개, 갤러리 섹션 */
+  #about h2 {
+    font-size: 2rem;
+  }
+
+  .about-sub {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .about-block {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .about-block h3 {
+    font-size: 1.4rem;
+  }
+
+  .about-block p,
+  .about-block ul li {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px 15px;
+  }
+
+  header .logo h1 {
+    font-size: 1.3rem;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  .hero img {
+    max-height: 180px;
+  }
+
+  .hero-text {
+    bottom: 8%;
+    padding: 12px 15px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+
+  main section {
+    padding: 50px 15px;
+  }
+
+  #about h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-sub {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  .about-block h3 {
+    font-size: 1.3rem;
+  }
+
+  .about-block p,
+  .about-block ul li {
+    font-size: 0.9rem;
+  }
+}
