@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSW - 마인크래프트 서버</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><h1>CSW - 체커 서버 웹</h1></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="gallery.html">갤러리</a></li>
+        <li><a href="minecraft.html">마인크래프트</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 서버 정보 -->
+    <section id="server-info">
+      <h2>서버 정보</h2>
+      <ul>
+        <li><strong>시즌 1 서버:</strong> 시즌1.체커.kro.kr</li>
+      </ul>
+    </section>
+
+    <!-- 마인크래프트 상태 -->
+    <section id="minecraft">
+      <h2>마인크래프트 서버 상태 - 미완</h2>
+      <div id="mc-status">
+        <p>서버 상태를 불러오는 중...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 CSW. All rights reserved.</p>
+  </footer>
+
+  <script>
+    async function loadStatus() {
+      const el = document.getElementById('mc-status');
+      try {
+        const res = await fetch('/api/minecraft');
+        if (!res.ok) throw new Error('네트워크 오류');
+        const json = await res.json();
+
+        const status = json.status || 'unknown';
+        const motd = json.motd || '';
+        const players = (json.players && json.players.online) || 0;
+        const max = (json.players && json.players.max) || 0;
+        const list = (json.players && json.players.list) || [];
+        const updated = json.lastUpdate || '';
+
+        el.innerHTML = `
+          <p><strong>상태:</strong> ${status === 'online' ? '<span style="color:green">온라인</span>' : '<span style="color:red">오프라인</span>'}</p>
+          <p><strong>MOTD:</strong> ${motd}</p>
+          <p><strong>플레이어:</strong> ${players} / ${max}</p>
+          <p><strong>목록:</strong> ${list.length ? list.join(', ') : '없음'}</p>
+          <p><small>최종 업데이트: ${updated}</small></p>
+        `;
+      } catch (err) {
+        el.innerHTML = `<p>서버 상태를 불러오지 못했습니다. (${err.message})</p>`;
+      }
+    }
+
+    window.addEventListener('load', () => {
+      loadStatus();
+      // 30초마다 갱신
+      setInterval(loadStatus, 30000);
+    });
+  </script>
+</body>
+</html>
