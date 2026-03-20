@@ -18,15 +18,29 @@ function renderSidebar() {
   channelListEl.innerHTML = '';
   channelsData.forEach(ch => {
     const li = document.createElement('li');
-    li.textContent = ch.name;
-    li.onclick = () => renderChannel(ch.id);
+    const btn = document.createElement('button');
+    btn.textContent = ch.name;
+    btn.setAttribute('data-type', ch.type);
+    btn.onclick = () => {
+      setActiveButton(btn);
+      renderChannel(ch.id);
+    };
+    li.appendChild(btn);
     channelListEl.appendChild(li);
   });
+}
+
+// active 버튼 스타일 처리
+function setActiveButton(activeBtn) {
+  const buttons = channelListEl.querySelectorAll('button');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  activeBtn.classList.add('active');
 }
 
 function renderChannel(id) {
   const ch = channelsData.find(c => c.id === id);
   if(!ch) return;
+
   channelTitleEl.textContent = ch.name;
   messagesContainer.innerHTML = '';
 
@@ -56,9 +70,9 @@ function renderChannel(id) {
 
 // 다크/라이트 토글
 themeToggle.onclick = () => {
-  if(document.documentElement.getAttribute('data-theme') === 'light'){
-    document.documentElement.setAttribute('data-theme','dark');
-  } else {
-    document.documentElement.setAttribute('data-theme','light');
-  }
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  document.documentElement.setAttribute(
+    'data-theme',
+    currentTheme === 'light' ? 'dark' : 'light'
+  );
 };
