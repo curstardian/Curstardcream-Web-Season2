@@ -13,7 +13,7 @@
       "name": "건의 포럼",
       "type": "forum",
       "posts": [
-        {"author": "관리자", "title": "새 플러그인 아이디어", "content": "/back, /rtp 명령어 어떰?"}
+        {"author": "관리자", "title": "새 플러그인 아이디어", "content": "/back, /rtp 명령어 개발 어떰?"}
       ]
     },
     {
