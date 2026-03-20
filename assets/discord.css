@@ -78,6 +78,59 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
+/* 네비게이션 공통 */
+nav {
+  background-color: var(--nav-bg, #f8e3b2);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--link-color, #222);
+  background-color: var(--link-bg, #fff);
+  transition: all 0.2s ease;
+  text-align: center;
+  min-width: 80px;
+}
+
+/* hover, active */
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: var(--accent-color, #d96f35);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* 다크 테마 */
+[data-theme="dark"] nav {
+  background-color: #1e1e1e;
+}
+
+[data-theme="dark"] nav ul li a {
+  color: #eee;
+  background-color: #2c2f33;
+}
+
+[data-theme="dark"] nav ul li a:hover,
+[data-theme="dark"] nav ul li a.active {
+  background-color: #7289da;
+  color: #fff;
+}
 
 /* 채널 컨텐츠 */
 #channel-content {
