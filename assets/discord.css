@@ -1,0 +1,111 @@
+/* 공통 구조 */
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+:root {
+  --bg-color: #fefbf3;
+  --sidebar-bg: #23272a;
+  --content-bg: #2c2f33;
+  --text-color: #eee;
+  --accent-color: #7289da;
+  --announcement-bg: #ffa500;
+}
+
+[data-theme="light"] {
+  --bg-color: #fefbf3;
+  --sidebar-bg: #f0f0f0;
+  --content-bg: #fff;
+  --text-color: #222;
+  --accent-color: #d96f35;
+  --announcement-bg: #ffdd55;
+}
+
+#discord-ui {
+  display: flex;
+  height: 80vh;
+  margin: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+#sidebar {
+  width: 220px;
+  background-color: var(--sidebar-bg);
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar li {
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#sidebar li:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+#theme-toggle {
+  margin-top: auto;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--accent-color);
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#channel-content {
+  flex: 1;
+  padding: 20px;
+  background-color: var(--content-bg);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-left: 1px solid rgba(0,0,0,0.2);
+}
+
+.message, .forum-post, .announcement {
+  background-color: #2f3136;
+  padding: 15px;
+  border-radius: 12px;
+  word-break: break-word;
+}
+
+.message .author, .forum-post .author {
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.forum-post h4 {
+  margin: 0 0 5px 0;
+}
+
+.announcement {
+  background-color: var(--announcement-bg);
+  color: #000;
+}
+
+/* 반응형 */
+@media(max-width: 768px){
+  #discord-ui { flex-direction: column; height: auto; }
+  #sidebar { width: 100%; flex-direction: row; overflow-x: auto; gap: 10px; }
+  #channel-content { border-left: none; border-top: 1px solid rgba(0,0,0,0.2); }
+}

@@ -1,0 +1,28 @@
+{
+  "channels": [
+    {
+      "id": "general",
+      "name": "일반",
+      "type": "message",
+      "messages": [
+        {"author": "관리자", "content": "체커 서버 시즌1 시작!"}
+      ]
+    },
+    {
+      "id": "forum1",
+      "name": "건의 포럼",
+      "type": "forum",
+      "posts": [
+        {"author": "관리자", "title": "새 플러그인 아이디어", "content": "/back, /rtp 명령어 어떰?"}
+      ]
+    },
+    {
+      "id": "announcement",
+      "name": "공지",
+      "type": "announcement",
+      "announcements": [
+        {"title": "서버 점검 안내", "content": "오늘부터 14일 동안 점검 예정입니다."}
+      ]
+    }
+  ]
+}
