@@ -142,7 +142,90 @@ main section {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
+/* ===========================
+   about.html 전용 스타일
+=========================== */
+#about {
+  background-color: #fff8e1;
+  padding: 60px 50px;
+  text-align: center;
+}
 
+#about h2 {
+  font-size: 2.4rem;
+  color: #d96f35;
+  margin-bottom: 25px;
+}
+
+.about-sub {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-block {
+  background-color: #fefbf3;
+  border-radius: 12px;
+  padding: 25px 20px;
+  margin-bottom: 25px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: left;
+}
+
+.about-block h3 {
+  color: #d96f35;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+
+.about-block ul {
+  list-style: disc inside;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.about-block ul li {
+  margin-bottom: 8px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  #about {
+    padding: 50px 20px;
+  }
+
+  .about-block {
+    padding: 20px 15px;
+  }
+
+  .about-block h3 {
+    font-size: 1.4rem;
+  }
+
+  .about-block ul li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #about {
+    padding: 40px 15px;
+  }
+
+  .about-block h3 {
+    font-size: 1.3rem;
+  }
+
+  .about-block ul li {
+    font-size: 0.95rem;
+  }
+}
 /* ===============================
    갤러리
 =============================== */
