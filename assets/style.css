@@ -1,4 +1,4 @@
-/* 기본 스타일 초기화 */
+/* 기본 초기화 */
 * {
   margin: 0;
   padding: 0;
@@ -7,152 +7,23 @@
 }
 
 body {
-  background-color: #0f172a; /* 변경 */
-  color: #e2e8f0; /* 변경 */
+  background-color: #fefbf3;
+  color: #222;
   line-height: 1.6;
 }
 
-.a {
-  color: #38bdf8; /* 변경 */
+a {
+  color: #d96f35;
   text-decoration: none;
   font-weight: 500;
 }
-.a:hover {
-  color: #0ea5e9; /* 변경 */
+a:hover {
+  color: #ff7f50;
 }
 
-/* ===== HERO ===== */
-.hero {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 50px;
-  border-radius: 12px;
-}
-
-.hero img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-text {
-  position: absolute;
-  bottom: 40%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.65); /* 변경 */
-  color: #fff;
-  padding: 20px 35px;
-  border-radius: 12px;
-  max-width: 80%;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.3); /* 변경 */
-  border: 1px solid rgba(56,189,248,0.3); /* 추가 */
-}
-
-.hero-text h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin: 0 0 10px 0;
-  text-shadow: 0 0 10px rgba(56,189,248,0.6); /* 변경 */
-}
-
-.hero-text p {
-  font-size: 1.1rem;
-  margin: 0;
-  text-shadow: 0 0 8px rgba(0,0,0,0.8);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)); /* 변경 */
-  pointer-events: none;
-}
-
-.hero-text {
-  opacity: 0;
-  transform: translate(-50%, 20px);
-  animation: fadeInUp 1s forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-
-/* ===== Minecraft 페이지 ===== */
-#server-info, #minecraft {
-  background-color: #020617; /* 변경 */
-  color: #e2e8f0;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 800px;
-  box-shadow: 0 0 20px rgba(56,189,248,0.2); /* 변경 */
-  border: 1px solid rgba(56,189,248,0.2);
-}
-
-#server-info h2, #minecraft h2 {
-  color: #38bdf8; /* 변경 */
-  margin-bottom: 12px;
-}
-
-#server-info ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-#server-info ul li {
-  margin-bottom: 8px;
-  font-size: 1.1rem;
-}
-
-#mc-status p {
-  margin: 6px 0;
-  font-size: 1rem;
-}
-
-#mc-status strong {
-  color: #22c55e; /* 변경 */
-}
-
-#mc-status span {
-  font-weight: bold;
-}
-
-#mc-status small {
-  color: #64748b; /* 변경 */
-}
-
-#mc-status p:nth-child(4) {
-  font-style: italic;
-  color: #38bdf8; /* 변경 */
-}
-
-/* ===== 반응형 ===== */
-@media screen and (max-width: 600px) {
-  #server-info, #minecraft {
-    padding: 15px;
-    margin: 15px;
-  }
-
-  #server-info ul li, #mc-status p {
-    font-size: 0.95rem;
-  }
-}
-
-/* ===== 헤더 ===== */
+/* ===== 헤더 / 네비게이션 ===== */
 header {
-  background: rgba(2,6,23,0.8); /* 변경 */
-  backdrop-filter: blur(10px); /* 추가 */
+  background-color: #f8e3b2;
   padding: 20px 50px;
   display: flex;
   justify-content: space-between;
@@ -160,157 +31,203 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5); /* 변경 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 header .logo h1 {
   font-size: 1.8rem;
-  color: #38bdf8; /* 변경 */
+  color: #d96f35;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #e2e8f0; /* 변경 */
-  font-weight: 500;
-  transition: color 0.3s;
+  color: #222;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
 }
-
 nav ul li a:hover {
-  color: #38bdf8; /* 변경 */
+  background-color: #d96f35;
+  color: #fff;
 }
 
-/* ===== 메인 ===== */
-main section {
-  padding: 80px 50px;
+/* ===== Hero 배너 ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  max-height: 500px;
+  overflow: hidden;
 }
 
-/* 홈 */
-#home {
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.55);
+  padding: 25px 40px;
+  border-radius: 15px;
+  color: #fff;
   text-align: center;
-  background: linear-gradient(to bottom, #0f172a, #020617); /* 변경 */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
-#home h2 {
-  font-size: 2.2rem;
+.hero-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+.hero-text p {
+  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
-#home p {
-  font-size: 1.2rem;
-}
-
-/* ===== 갤러리 ===== */
-#gallery h2 {
+/* ===== Features / 카드 ===== */
+.features {
+  padding: 80px 50px;
   text-align: center;
+}
+
+.features h2 {
   margin-bottom: 40px;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  color: #d96f35;
 }
 
-.gallery-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+.feature-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
 }
 
-.gallery-item img {
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(56,189,248,0.2); /* 변경 */
+.card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  width: 260px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.gallery-item img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(56,189,248,0.6); /* 변경 */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.4);
 }
 
-/* ===== 푸터 ===== */
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: #ffcc00;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #eee;
+}
+
+/* ===== Status ===== */
+.status {
+  background: rgba(0,0,0,0.3);
+  color: #f0f0f0;
+  padding: 60px 20px;
+  margin: 40px 0;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.status h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+#live-status p {
+  font-size: 1rem;
+  margin: 8px 0;
+}
+
+.online { color: #7fff50; font-weight: bold; }
+.offline { color: #ff5555; font-weight: bold; }
+
+/* ===== CTA ===== */
+.cta {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #d96f35;
+}
+
+.btn-discord {
+  display: inline-block;
+  background-color: #7289da;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 25px;
+  border-radius: 8px;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.btn-discord:hover {
+  background-color: #5b6eae;
+}
+
+/* ===== Footer ===== */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #020617; /* 변경 */
-  color: #64748b; /* 변경 */
+  background-color: #f8e3b2;
+  color: #555;
   margin-top: 40px;
 }
 
-/* ===== 모바일 ===== */
+/* ===== 반응형 ===== */
 @media (max-width: 768px) {
   header {
-    padding: 15px 20px;
     flex-direction: column;
+    padding: 15px 20px;
     gap: 10px;
   }
-
-  header .logo h1 {
-    font-size: 1.5rem;
-  }
-
+  header .logo h1 { font-size: 1.5rem; }
   nav ul {
     flex-direction: column;
     gap: 10px;
     align-items: center;
   }
 
-  main section {
-    padding: 60px 20px;
-  }
+  main section { padding: 60px 20px; }
 
-  .hero img {
-    max-height: 250px;
-  }
-
-  .hero-text {
-    bottom: 10%;
-    padding: 15px 20px;
-    max-width: 90%;
-  }
-
-  .hero-text h2 {
-    font-size: 1.6rem;
-  }
-
-  .hero-text p {
-    font-size: 1rem;
-  }
+  .hero-text { padding: 20px; font-size: 1rem; }
+  .features h2 { font-size: 2rem; }
+  .card { width: 100%; max-width: 300px; margin-bottom: 20px; }
+  .cta h2 { font-size: 1.8rem; }
 }
 
 @media (max-width: 480px) {
-  header {
-    padding: 10px 15px;
-  }
-
-  header .logo h1 {
-    font-size: 1.3rem;
-  }
-
-  nav ul li a {
-    font-size: 0.9rem;
-  }
-
-  .hero img {
-    max-height: 180px;
-  }
-
-  .hero-text {
-    bottom: 8%;
-    padding: 12px 15px;
-  }
-
-  .hero-text h2 {
-    font-size: 1.4rem;
-  }
-
-  .hero-text p {
-    font-size: 0.9rem;
-  }
-
-  main section {
-    padding: 50px 15px;
-  }
+  header { padding: 10px 15px; }
+  header .logo h1 { font-size: 1.3rem; }
+  nav ul li a { font-size: 0.9rem; }
+  .hero-text { padding: 15px; }
+  .features h2 { font-size: 1.8rem; }
+  .card h3 { font-size: 1.2rem; }
+  .card p { font-size: 0.9rem; }
+  .cta h2 { font-size: 1.5rem; }
 }
