@@ -3,70 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSW 시즌1</title>
-
-  <!-- 폰트 -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Noto+Sans+KR&display=swap" rel="stylesheet">
-
+  <title>CSW 시즌1 - 홈</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<header>
-  <div class="logo">CSW</div>
-  <nav>
-    <a href="index.html">홈</a>
-    <a href="gallery.html">갤러리</a>
-    <a href="minecraft.html">서버</a>
-  </nav>
-</header>
+  <!-- ===== 헤더 / 네비게이션 ===== -->
+  <header>
+    <div class="logo"><h1>CSW - 체커 서버 웹</h1></div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav-link">홈</a></li>
+        <li><a href="gallery.html" class="nav-link">갤러리</a></li>
+        <li><a href="minecraft.html" class="nav-link">마인크래프트</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<!-- 🔥 HERO -->
-<section class="hero">
-  <div class="hero-overlay"></div>
+  <!-- ===== 메인 콘텐츠 ===== -->
+  <main>
+    <!-- 배너 / Hero -->
+    <section class="hero">
+      <img src="assets/images/season1_banner.jpg" alt="체커 서버 시즌1">
+      <div class="hero-text">
+        <h2>CSW 시즌1 오픈!</h2>
+        <p>디스코드 커뮤니티와 함께 서버 모험을 시작하세요.</p>
+        <a href="minecraft.html" class="btn btn-discord">서버 접속하기</a>
+      </div>
+    </section>
 
-  <div class="hero-content">
-    <h1>CSW 시즌 1</h1>
-    <p>단순한 SMP가 아닙니다</p>
+    <!-- 서버 특징 / Features -->
+    <section class="features">
+      <h2>왜 CSW인가?</h2>
+      <div class="feature-grid">
+        <div class="card">
+          <h3>💰 경제 시스템</h3>
+          <p>플레이로 돈을 벌고 성장할 수 있어요.</p>
+        </div>
+        <div class="card">
+          <h3>⚔️ PvP</h3>
+          <p>전략적인 전투와 도전적인 플레이</p>
+        </div>
+        <div class="card">
+          <h3>🧠 커스텀 시스템</h3>
+          <p>직접 개발된 독창적인 시스템</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="hero-buttons">
-      <a href="minecraft.html" class="btn primary">지금 접속하기</a>
-      <a href="https://discord.gg/uyu6YMsDtZ" class="btn discord">디스코드</a>
-    </div>
-  </div>
-</section>
+    <!-- 서버 상태 / Status -->
+    <section class="status">
+      <h2>현재 서버 상태</h2>
+      <div id="live-status">
+        불러오는 중...
+      </div>
+    </section>
 
-<!-- 🔥 특징 -->
-<section class="features">
-  <h2>서버 특징</h2>
+    <!-- CTA / Call to Action -->
+    <section class="cta">
+      <h2>지금 바로 시작하세요</h2>
+      <a href="minecraft.html" class="btn btn-discord">서버 접속하기</a>
+      <a href="https://discord.gg/uyu6YMsDtZ" class="btn btn-discord">디스코드 참여</a>
+    </section>
+  </main>
 
-  <div class="feature-grid">
-    <div class="card">
-      <h3>💰 경제 시스템</h3>
-      <p>플레이로 돈을 벌고 성장</p>
-    </div>
+  <!-- ===== 푸터 ===== -->
+  <footer>
+    <p>&copy; 2026 CSW. All rights reserved.</p>
+  </footer>
 
-    <div class="card">
-      <h3>⚔️ PvP</h3>
-      <p>전략적인 전투 시스템</p>
-    </div>
+  <script>
+    async function loadStatus() {
+      const el = document.getElementById('live-status');
+      try {
+        const res = await fetch('/api/minecraft');
+        if (!res.ok) throw new Error('네트워크 오류');
+        const json = await res.json();
+        const status = json.status || 'unknown';
+        const motd = json.motd || '';
+        const players = (json.players && json.players.online) || 0;
+        const max = (json.players && json.players.max) || 0;
+        el.innerHTML = `
+          <p><strong>상태:</strong> ${status === 'online' ? '<span class="online">온라인</span>' : '<span class="offline">오프라인</span>'}</p>
+          <p><strong>MOTD:</strong> ${motd}</p>
+          <p><strong>플레이어:</strong> ${players} / ${max}</p>
+        `;
+      } catch (err) {
+        el.innerHTML = `<p>서버 상태를 불러오지 못했습니다. (${err.message})</p>`;
+      }
+    }
 
-    <div class="card">
-      <h3>🧠 커스텀</h3>
-      <p>직접 개발된 시스템</p>
-    </div>
-  </div>
-</section>
-
-<!-- 🔥 CTA -->
-<section class="cta">
-  <h2>지금 바로 시작하세요</h2>
-  <a href="minecraft.html" class="btn primary big">서버 접속하기</a>
-</section>
-
-<footer>
-  <p>© 2026 CSW</p>
-</footer>
+    window.addEventListener('load', () => {
+      loadStatus();
+      setInterval(loadStatus, 30000);
+    });
+  </script>
 
 </body>
 </html>
