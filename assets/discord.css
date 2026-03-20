@@ -78,58 +78,74 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
-/* 네비게이션 공통 */
-nav {
-  background-color: var(--nav-bg, #f8e3b2);
-  padding: 10px 20px;
+/* 헤더 전체 */
+header {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 50px;
+  background-color: var(--header-bg, #f8e3b2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex-wrap: nowrap; /* 한 줄로 고정 */
 }
 
-nav ul {
+/* 로고 */
+header .logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--logo-color, #d96f35);
+}
+
+/* 네비게이션 */
+header nav ul {
   list-style: none;
   display: flex;
   gap: 12px;
   padding: 0;
   margin: 0;
-  flex-wrap: wrap;
 }
 
-nav ul li a {
+/* 버튼형 a */
+header nav ul li a {
   display: inline-block;
   padding: 8px 16px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
-  color: var(--link-color, #222);
-  background-color: var(--link-bg, #fff);
-  transition: all 0.2s ease;
   text-align: center;
   min-width: 80px;
+  background-color: var(--link-bg, #fff);
+  color: var(--link-color, #222);
+  transition: all 0.2s ease;
 }
 
-/* hover, active */
-nav ul li a:hover,
-nav ul li a.active {
+/* hover & active */
+header nav ul li a:hover,
+header nav ul li a.active {
   background-color: var(--accent-color, #d96f35);
   color: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
+/* 라이트 테마 */
+[data-theme="light"] {
+  --header-bg: #f8e3b2;
+  --logo-color: #d96f35;
+  --link-bg: #fff;
+  --link-color: #222;
+  --accent-color: #d96f35;
+}
+
 /* 다크 테마 */
-[data-theme="dark"] nav {
-  background-color: #1e1e1e;
-}
-
-[data-theme="dark"] nav ul li a {
-  color: #eee;
-  background-color: #2c2f33;
-}
-
-[data-theme="dark"] nav ul li a:hover,
-[data-theme="dark"] nav ul li a.active {
-  background-color: #7289da;
-  color: #fff;
+[data-theme="dark"] {
+  --header-bg: #1e1e1e;
+  --logo-color: #ffa500;
+  --link-bg: #2c2f33;
+  --link-color: #eee;
+  --accent-color: #7289da;
 }
 
 /* 채널 컨텐츠 */
