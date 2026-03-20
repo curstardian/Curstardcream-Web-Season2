@@ -9,7 +9,7 @@ body {
 :root {
   /* 다크 모드 기본값 */
   --bg-color: #1e1e1e;
-  --nav-bg: #23272a;
+  --sidebar-bg: #23272a;
   --content-bg: #2c2f33;
   --text-color: #eee;
   --accent-color: #7289da;
@@ -20,7 +20,7 @@ body {
 
 [data-theme="light"] {
   --bg-color: #fefbf3;
-  --nav-bg: #f0f0f0;
+  --sidebar-bg: #f0f0f0;
   --content-bg: #fff;
   --text-color: #222;
   --accent-color: #d96f35;
@@ -32,7 +32,6 @@ body {
 /* 전체 레이아웃 */
 #discord-ui {
   display: flex;
-  flex-direction: column;
   height: 80vh;
   margin: 20px;
   border-radius: 12px;
@@ -40,28 +39,26 @@ body {
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-/* 가로 네비게이션 */
+/* 사이드바 */
 #sidebar {
-  width: 100%;
-  background-color: var(--nav-bg);
+  width: 220px;
+  background-color: var(--sidebar-bg);
+  padding: 20px;
+  overflow-y: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 10px;
-  padding: 10px 20px;
-  overflow-x: auto;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
+/* 네비게이션 버튼 스타일 */
 #sidebar a {
-  display: inline-block;
+  display: block;
   text-decoration: none;
   color: var(--link-color);
   padding: 10px 15px;
   border-radius: 8px;
-  background-color: transparent;
   transition: all 0.2s;
   font-weight: 500;
-  white-space: nowrap;
 }
 
 #sidebar a:hover,
@@ -72,7 +69,7 @@ body {
 
 /* 테마 토글 버튼 */
 #theme-toggle {
-  margin-left: auto;
+  margin-top: auto;
   padding: 8px 12px;
   border: none;
   border-radius: 8px;
@@ -91,6 +88,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  border-left: 1px solid rgba(0,0,0,0.2);
 }
 
 /* 메시지/포럼/공지 스타일 */
@@ -117,9 +115,7 @@ body {
 
 /* 반응형 */
 @media(max-width: 768px){
-  #sidebar {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-  }
+  #discord-ui { flex-direction: column; height: auto; }
+  #sidebar { width: 100%; flex-direction: row; overflow-x: auto; gap: 10px; }
+  #channel-content { border-left: none; border-top: 1px solid rgba(0,0,0,0.2); }
 }
