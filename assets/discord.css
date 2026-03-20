@@ -181,7 +181,64 @@ header nav ul li a.active {
   background-color: var(--announcement-bg);
   color: #000;
 }
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
+/* 채널 버튼 */
+#sidebar ul li {
+  margin: 0;
+}
+
+#sidebar ul li button {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--link-bg);
+  color: var(--link-color);
+  text-align: left;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* hover & active */
+#sidebar ul li button:hover,
+#sidebar ul li button.active {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/* 채널 유형별 색상 */
+#sidebar ul li button[data-type="announcement"] {
+  background-color: var(--announcement-bg);
+  color: #000;
+}
+
+#sidebar ul li button[data-type="forum"] {
+  background-color: var(--link-bg);
+  color: var(--link-color);
+  font-style: italic;
+}
+
+#sidebar ul li button[data-type="general"] {
+  background-color: var(--link-bg);
+  color: var(--link-color);
+}
+
+/* 반응형 */
+@media(max-width: 768px) {
+  #sidebar ul li button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
 /* 반응형 */
 @media(max-width: 768px){
   #discord-ui { flex-direction: column; height: auto; }
