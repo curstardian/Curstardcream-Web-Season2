@@ -21,7 +21,7 @@
       "name": "공지",
       "type": "announcement",
       "announcements": [
-        {"title": "서버 점검 안내", "content": "오늘부터 14일 동안 점검 예정입니다."}
+        {"title": "서버 점검 안내", "content": "오늘부터 14일 동안 점검 예정입니다.\n자세한 내용은 https://discord.com/events/1412004288284196967/1484404521429106838 에서 확인"}
       ]
     }
   ]
