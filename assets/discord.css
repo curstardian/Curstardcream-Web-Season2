@@ -7,11 +7,14 @@ body {
 }
 
 :root {
-  --bg-color: #fefbf3;
+  /* 다크 모드 기본값 */
+  --bg-color: #1e1e1e;
   --sidebar-bg: #23272a;
   --content-bg: #2c2f33;
   --text-color: #eee;
   --accent-color: #7289da;
+  --link-color: #eee;
+  --link-hover: #7289da;
   --announcement-bg: #ffa500;
 }
 
@@ -21,9 +24,12 @@ body {
   --content-bg: #fff;
   --text-color: #222;
   --accent-color: #d96f35;
+  --link-color: #222;
+  --link-hover: #d96f35;
   --announcement-bg: #ffdd55;
 }
 
+/* 전체 레이아웃 */
 #discord-ui {
   display: flex;
   height: 80vh;
@@ -33,6 +39,7 @@ body {
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
+/* 사이드바 */
 #sidebar {
   width: 220px;
   background-color: var(--sidebar-bg);
@@ -40,41 +47,27 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 
-header {
-  background-color: #1f1f1f;
-}
-
-header .logo h1 {
-  color: #ffa500;
-}
-
-nav ul li a {
-  color: #eee;
-}
-
-nav ul li a:hover {
-  color: #ffb84d;
-}
-#sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-#sidebar li {
+/* 네비게이션 버튼 스타일 */
+#sidebar a {
+  display: block;
+  text-decoration: none;
+  color: var(--link-color);
   padding: 10px 15px;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
+  font-weight: 500;
 }
 
-#sidebar li:hover {
+#sidebar a:hover,
+#sidebar a.active {
   background-color: var(--accent-color);
   color: #fff;
 }
 
+/* 테마 토글 버튼 */
 #theme-toggle {
   margin-top: auto;
   padding: 8px 12px;
@@ -86,6 +79,7 @@ nav ul li a:hover {
   font-weight: bold;
 }
 
+/* 채널 컨텐츠 */
 #channel-content {
   flex: 1;
   padding: 20px;
@@ -97,6 +91,7 @@ nav ul li a:hover {
   border-left: 1px solid rgba(0,0,0,0.2);
 }
 
+/* 메시지/포럼/공지 스타일 */
 .message, .forum-post, .announcement {
   background-color: #2f3136;
   padding: 15px;
