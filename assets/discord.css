@@ -43,6 +43,21 @@ body {
   gap: 15px;
 }
 
+header {
+  background-color: #1f1f1f;
+}
+
+header .logo h1 {
+  color: #ffa500;
+}
+
+nav ul li a {
+  color: #eee;
+}
+
+nav ul li a:hover {
+  color: #ffb84d;
+}
 #sidebar ul {
   list-style: none;
   padding: 0;
