@@ -1,4 +1,6 @@
-/* 기본 초기화 */
+/* ===============================
+   기본 스타일 초기화
+=============================== */
 * {
   margin: 0;
   padding: 0;
@@ -7,21 +9,23 @@
 }
 
 body {
-  background-color: #fefbf3;
+  background-color: #fefbf3; /* 라이트 기본 배경 */
   color: #222;
   line-height: 1.6;
 }
 
-a {
+.a {
   color: #d96f35;
   text-decoration: none;
   font-weight: 500;
 }
-a:hover {
+.a:hover {
   color: #ff7f50;
 }
 
-/* ===== 헤더 / 네비게이션 ===== */
+/* ===============================
+   헤더 / 내비게이션
+=============================== */
 header {
   background-color: #f8e3b2;
   padding: 20px 50px;
@@ -42,155 +46,183 @@ header .logo h1 {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 20px;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #222;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: 0.3s;
-}
-nav ul li a:hover {
-  background-color: #d96f35;
-  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-/* ===== Hero 배너 ===== */
+nav ul li a:hover {
+  color: #d96f35;
+}
+
+/* ===============================
+   메인 섹션 공통
+=============================== */
+main section {
+  padding: 80px 50px;
+}
+
+/* ===============================
+   홈 / 배너
+=============================== */
+#home {
+  text-align: center;
+  background-color: #fff8e1;
+}
+
 .hero {
   position: relative;
-  width: 100%;
-  max-height: 500px;
   overflow: hidden;
+  margin-bottom: 50px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
 .hero img {
   width: 100%;
-  height: 100%;
+  max-height: 400px;
   object-fit: cover;
+  display: block;
 }
 
 .hero-text {
   position: absolute;
-  top: 50%;
+  bottom: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0,0,0,0.55);
-  padding: 25px 40px;
-  border-radius: 15px;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.55);
   color: #fff;
+  padding: 25px 40px;
+  border-radius: 12px;
+  max-width: 80%;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  opacity: 0;
+  transform: translate(-50%, 20px);
+  animation: fadeInUp 1s forwards;
 }
 
 .hero-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 12px;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
 }
+
 .hero-text p {
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
-/* ===== Features / 카드 ===== */
-.features {
-  padding: 80px 50px;
-  text-align: center;
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
-.features h2 {
-  margin-bottom: 40px;
-  font-size: 2.2rem;
-  color: #d96f35;
-}
-
-.feature-grid {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-}
-
+/* ===============================
+   카드 스타일
+=============================== */
 .card {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 25px;
-  width: 260px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
 
-.card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-  color: #ffcc00;
+/* ===============================
+   갤러리
+=============================== */
+#gallery h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
 }
 
-.card p {
-  font-size: 1rem;
-  color: #eee;
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-/* ===== Status ===== */
-.status {
-  background: rgba(0,0,0,0.3);
-  color: #f0f0f0;
-  padding: 60px 20px;
-  margin: 40px 0;
+.gallery-item img {
+  width: 100%;
   border-radius: 12px;
-  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.status h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+.gallery-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+}
+
+/* ===============================
+   마인크래프트 서버
+=============================== */
+#server-info, #minecraft {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+#server-info h2, #minecraft h2 {
   color: #ffcc00;
+  margin-bottom: 12px;
 }
 
-#live-status p {
+#server-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#server-info ul li {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+#mc-status p {
+  margin: 6px 0;
   font-size: 1rem;
-  margin: 8px 0;
 }
 
-.online { color: #7fff50; font-weight: bold; }
-.offline { color: #ff5555; font-weight: bold; }
-
-/* ===== CTA ===== */
-.cta {
-  text-align: center;
-  padding: 60px 20px;
+#mc-status strong {
+  color: #ffdd55;
 }
 
-.cta h2 {
-  font-size: 2rem;
-  margin-bottom: 25px;
-  color: #d96f35;
+#mc-status span {
+  font-weight: bold;
 }
 
-.btn-discord {
-  display: inline-block;
-  background-color: #7289da;
-  color: #fff;
-  font-weight: 600;
-  padding: 12px 25px;
-  border-radius: 8px;
-  margin: 10px;
-  transition: 0.3s;
+#mc-status small {
+  color: #999;
 }
 
-.btn-discord:hover {
-  background-color: #5b6eae;
+#mc-status p:nth-child(4) {
+  font-style: italic;
+  color: #a0e0ff;
 }
 
-/* ===== Footer ===== */
+/* ===============================
+   푸터
+=============================== */
 footer {
   text-align: center;
   padding: 20px;
@@ -199,35 +231,143 @@ footer {
   margin-top: 40px;
 }
 
-/* ===== 반응형 ===== */
+/* ===============================
+   다크 모드
+=============================== */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #eee;
+  }
+
+  header {
+    background-color: #1f1f1f;
+  }
+
+  header .logo h1 {
+    color: #ffa500;
+  }
+
+  nav ul li a {
+    color: #eee;
+  }
+
+  nav ul li a:hover {
+    color: #ffb84d;
+  }
+
+  #home {
+    background-color: #181818;
+  }
+
+  .hero-text {
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+  }
+
+  .card {
+    background-color: #1e1e1e;
+    color: #eee;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  }
+
+  #server-info, #minecraft {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  }
+
+  #mc-status p:nth-child(4) {
+    color: #88dfff;
+  }
+
+  footer {
+    background-color: #1f1f1f;
+    color: #ccc;
+  }
+
+  .gallery-item img {
+    box-shadow: 0 3px 10px rgba(255,255,255,0.1);
+  }
+
+  .gallery-item img:hover {
+    box-shadow: 0 5px 20px rgba(255,255,255,0.2);
+  }
+}
+
+/* ===============================
+   반응형
+=============================== */
 @media (max-width: 768px) {
   header {
-    flex-direction: column;
     padding: 15px 20px;
+    flex-direction: column;
     gap: 10px;
   }
-  header .logo h1 { font-size: 1.5rem; }
+
+  header .logo h1 {
+    font-size: 1.5rem;
+  }
+
   nav ul {
     flex-direction: column;
     gap: 10px;
     align-items: center;
   }
 
-  main section { padding: 60px 20px; }
+  main section {
+    padding: 60px 20px;
+  }
 
-  .hero-text { padding: 20px; font-size: 1rem; }
-  .features h2 { font-size: 2rem; }
-  .card { width: 100%; max-width: 300px; margin-bottom: 20px; }
-  .cta h2 { font-size: 1.8rem; }
+  .hero img {
+    max-height: 250px;
+  }
+
+  .hero-text {
+    bottom: 10%;
+    padding: 15px 20px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
-  header { padding: 10px 15px; }
-  header .logo h1 { font-size: 1.3rem; }
-  nav ul li a { font-size: 0.9rem; }
-  .hero-text { padding: 15px; }
-  .features h2 { font-size: 1.8rem; }
-  .card h3 { font-size: 1.2rem; }
-  .card p { font-size: 0.9rem; }
-  .cta h2 { font-size: 1.5rem; }
+  header {
+    padding: 10px 15px;
+  }
+
+  header .logo h1 {
+    font-size: 1.3rem;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  .hero img {
+    max-height: 180px;
+  }
+
+  .hero-text {
+    bottom: 8%;
+    padding: 12px 15px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+
+  main section {
+    padding: 50px 15px;
+  }
 }
