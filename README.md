@@ -1,6 +1,6 @@
 # CSW 시즌1 웹 (Chacker Web Season 1)
 
-![CWS Banner](public/images/season1_banner.jpg)
+![CWS Banner](assets/images/season1_banner.jpg)
 
 CWS 시즌1 웹은 체커 서버의 시즌1를 위한 공식 웹사이트입니다.
 
